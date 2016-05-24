@@ -47,25 +47,23 @@ $this->params['breadcrumbs'][] = $this->title;
             </p>
 
 
-            <?= "<?= " ?>
-            DetailView::widget([
+            <?= "<?= " ?>DetailView::widget([
                 'model' => $model,
                 'attributes' => [
 <?php
 if (($tableSchema = $generator->getTableSchema()) === false) {
     foreach ($generator->getColumnNames() as $name) {
-        echo "            '" . $name . "',\n";
+        echo "                    '" . $name . "',\n";
     }
 } else {
     foreach ($generator->getTableSchema()->columns as $column) {
         $format = $generator->generateColumnFormat($column);
-        echo "            '" . $column->name . ($format === 'text' ? "" : ":" . $format) . "',\n";
+        echo "                    '" . $column->name . ($format === 'text' ? "" : ":" . $format) . "',\n";
     }
 }
 ?>
                 ],
-            ])
-            ?>
+            ]) ?>
 
         </div>
     </div>

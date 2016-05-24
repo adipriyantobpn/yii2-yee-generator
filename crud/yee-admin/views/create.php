@@ -20,6 +20,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-create">
-    <h3 class="lte-hide-title"><?= "<?= " ?> Html::encode($this->title) ?></h3>
+    <h3 class="lte-hide-title"><?= "<?= " ?>Html::encode($this->title) ?></h3>
     <?= "<?= " ?> $this->render('_form', compact('model')) ?>
 </div>

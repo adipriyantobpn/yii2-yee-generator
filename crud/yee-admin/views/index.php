@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-sm-12">
-            <h3 class="lte-hide-title page-title"><?= "<?= " ?> Html::encode($this->title) ?></h3>
+            <h3 class="lte-hide-title page-title"><?= "<?= " ?>Html::encode($this->title) ?></h3>
             <?= "<?= " ?>Html::a(Yii::t('yee', 'Add New'), ['<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/create'], ['class' => 'btn btn-sm btn-primary']) ?>
         </div>
     </div>
@@ -53,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
 
                 <div class="col-sm-6 text-right">
-                    <?= "<?= " ?> GridPageSize::widget(['pjaxId' => '<?= $modelClassId ?>-grid-pjax']) ?>
+                    <?= "<?= " ?>GridPageSize::widget(['pjaxId' => '<?= $modelClassId ?>-grid-pjax']) ?>
                 </div>
             </div>
 
