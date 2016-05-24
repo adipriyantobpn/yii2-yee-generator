@@ -40,7 +40,8 @@ use yeesoft\helpers\Html;
             <div class="panel panel-default">
                 <div class="panel-body">
                     <?php foreach ($generator->getColumnNames() as $attribute) {
-                        if (in_array($attribute, $safeAttributes)) {
+                        $autoFills = ['created_by', 'created_at', 'updated_by', 'updated_at'];
+                        if (in_array($attribute, $safeAttributes) && !in_array($attribute, $autoFills)) {
                             echo "\n                    <?= " . $generator->generateActiveField($attribute) . " ?>\n";
                         }
                     } ?>
