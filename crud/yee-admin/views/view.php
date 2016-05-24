@@ -29,12 +29,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel-body">
 
             <p>
-                <?= "<?= " ?>
-                Html::a('Edit', ['/<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/default/update', 'id' => $model->id],
+                <?= "<?= " ?>Html::a('Edit', ['<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/update', 'id' => $model->id],
                     ['class' => 'btn btn-sm btn-primary'])
                 ?>
-                <?= "<?= " ?>
-                Html::a('Delete', ['/<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/default/delete', 'id' => $model->id],
+                <?= "<?= " ?>Html::a('Delete', ['<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/delete', 'id' => $model->id],
                     [
                     'class' => 'btn btn-sm btn-default',
                     'data' => [
@@ -43,32 +41,29 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                 ])
                 ?>
-                <?= "<?= " ?>
-                Html::a(Yii::t('yee', 'Add New'), ['/<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/default/create'],
+                <?= "<?= " ?>Html::a(Yii::t('yee', 'Add New'), ['<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/create'],
                     ['class' => 'btn btn-sm btn-primary pull-right'])
                 ?>
             </p>
 
 
-            <?= "<?= " ?>
-            DetailView::widget([
+            <?= "<?= " ?>DetailView::widget([
                 'model' => $model,
                 'attributes' => [
 <?php
 if (($tableSchema = $generator->getTableSchema()) === false) {
     foreach ($generator->getColumnNames() as $name) {
-        echo "            '" . $name . "',\n";
+        echo "                    '" . $name . "',\n";
     }
 } else {
     foreach ($generator->getTableSchema()->columns as $column) {
         $format = $generator->generateColumnFormat($column);
-        echo "            '" . $column->name . ($format === 'text' ? "" : ":" . $format) . "',\n";
+        echo "                    '" . $column->name . ($format === 'text' ? "" : ":" . $format) . "',\n";
     }
 }
 ?>
                 ],
-            ])
-            ?>
+            ]) ?>
 
         </div>
     </div>

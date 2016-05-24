@@ -40,7 +40,8 @@ use yeesoft\helpers\Html;
             <div class="panel panel-default">
                 <div class="panel-body">
                     <?php foreach ($generator->getColumnNames() as $attribute) {
-                        if (in_array($attribute, $safeAttributes)) {
+                        $autoFills = ['created_by', 'created_at', 'updated_by', 'updated_at'];
+                        if (in_array($attribute, $safeAttributes) && !in_array($attribute, $autoFills)) {
                             echo "\n                    <?= " . $generator->generateActiveField($attribute) . " ?>\n";
                         }
                     } ?>
@@ -63,11 +64,11 @@ use yeesoft\helpers\Html;
                         <div class="form-group">
                             <?= "<?php " ?> if ($model->isNewRecord): ?>
                                 <?= "<?= " ?>Html::submitButton(Yii::t('yee', 'Create'), ['class' => 'btn btn-primary']) ?>
-                                <?= "<?= " ?>Html::a(Yii::t('yee', 'Cancel'), ['/<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/default/index'], ['class' => 'btn btn-default']) ?>
+                                <?= "<?= " ?>Html::a(Yii::t('yee', 'Cancel'), ['<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/index'], ['class' => 'btn btn-default']) ?>
                             <?= "<?php " ?> else: ?>
                                 <?= "<?= " ?>Html::submitButton(Yii::t('yee', 'Save'), ['class' => 'btn btn-primary']) ?>
                                 <?= "<?= " ?>Html::a(Yii::t('yee', 'Delete'),
-                                    ['/<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/default/delete', 'id' => $model->id], [
+                                    ['<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/delete', 'id' => $model->id], [
                                     'class' => 'btn btn-default',
                                     'data' => [
                                         'confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),

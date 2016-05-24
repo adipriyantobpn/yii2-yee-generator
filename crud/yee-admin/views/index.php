@@ -33,8 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-sm-12">
-            <h3 class="lte-hide-title page-title"><?= "<?= " ?> Html::encode($this->title) ?></h3>
-            <?= "<?= " ?>Html::a(Yii::t('yee', 'Add New'), ['/<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/default/create'], ['class' => 'btn btn-sm btn-primary']) ?>
+            <h3 class="lte-hide-title page-title"><?= "<?= " ?>Html::encode($this->title) ?></h3>
+            <?= "<?= " ?>Html::a(Yii::t('yee', 'Add New'), ['<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/create'], ['class' => 'btn btn-sm btn-primary']) ?>
         </div>
     </div>
 
@@ -53,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
 
                 <div class="col-sm-6 text-right">
-                    <?= "<?= " ?> GridPageSize::widget(['pjaxId' => '<?= $modelClassId ?>-grid-pjax']) ?>
+                    <?= "<?= " ?>GridPageSize::widget(['pjaxId' => '<?= $modelClassId ?>-grid-pjax']) ?>
                 </div>
             </div>
 
@@ -76,7 +76,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ['class' => 'yeesoft\grid\CheckboxColumn', 'options' => ['style' => 'width:10px']],
                     [
                         'class' => 'yeesoft\grid\columns\TitleActionColumn',
-                        'controller' => '/<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/default',
+                        'controller' => '<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>',
                         'title' => function(<?= $modelClass ?> $model) {
                             return Html::a($model->id, ['view', 'id' => $model->id], ['data-pjax' => 0]);
                         },
