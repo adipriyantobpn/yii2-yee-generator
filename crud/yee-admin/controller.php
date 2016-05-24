@@ -31,10 +31,10 @@ class <?= $controllerClass ?> extends <?= $baseControllerClass ?>
     {
         switch ($action) {
             case 'update':
-                return ['update', 'id' => $model->id];
+                return ['view', 'id' => $model->id];
                 break;
             case 'create':
-                return ['update', 'id' => $model->id];
+                return ['view', 'id' => $model->id];
                 break;
             default:
                 return parent::getRedirectPage($action, $model);
