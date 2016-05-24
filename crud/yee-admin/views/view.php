@@ -29,12 +29,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel-body">
 
             <p>
-                <?= "<?= " ?>
-                Html::a('Edit', ['/<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/default/update', 'id' => $model->id],
+                <?= "<?= " ?>Html::a('Edit', ['<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/update', 'id' => $model->id],
                     ['class' => 'btn btn-sm btn-primary'])
                 ?>
-                <?= "<?= " ?>
-                Html::a('Delete', ['/<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/default/delete', 'id' => $model->id],
+                <?= "<?= " ?>Html::a('Delete', ['<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/delete', 'id' => $model->id],
                     [
                     'class' => 'btn btn-sm btn-default',
                     'data' => [
@@ -43,8 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                 ])
                 ?>
-                <?= "<?= " ?>
-                Html::a(Yii::t('yee', 'Add New'), ['/<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/default/create'],
+                <?= "<?= " ?>Html::a(Yii::t('yee', 'Add New'), ['<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/create'],
                     ['class' => 'btn btn-sm btn-primary pull-right'])
                 ?>
             </p>
